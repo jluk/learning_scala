@@ -9,8 +9,9 @@ object Chapter3 {
   def main( args:Array[String]): Unit ={
     var t1 = ArrayBuffer(5,10,15,16,17,18,19,35)
     println(binSearch(t1,0,t1.length,35))
-    var t2 = swapAdjacent(Array(1,2,3,4,5))
-    for (i <- t2.length) println(t2(i))
+    var t2 = Array(1,2,3,4,5)
+    swapAdjacent(t2)
+    for (i <- 0 until t2.length) println(t2(i))
   }
 
   def binSearch(arr:ArrayBuffer[Int], begin:Int, end:Int, k:Int): Int={
@@ -26,7 +27,7 @@ object Chapter3 {
   }
 
   //3.2
-  def swapAdjacent(arr:Array[Int]): Array[Int]={
+  def swapAdjacent(arr:Array[Int]): Unit={
     for (i <- 0 until (arr.length-1) by 2){
       swap(arr,i,i+1)
     }
