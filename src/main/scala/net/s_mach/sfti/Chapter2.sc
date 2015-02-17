@@ -21,6 +21,8 @@ embaress(name = "is bad", left = "Tyler ", right = " at smash")
 //Exercises
 //2.1
 Chapter2.signum(-100)
+Chapter2.signum(0)
+Chapter2.signum(100)
 //2.2
 def empty(n:Int){}
 val e1 = empty(7)

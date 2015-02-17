@@ -1,5 +1,7 @@
 import scala.collection.mutable._
 import scala.util.Random
+import java.awt.datatransfer._
+import net.s_mach.sfti._
 
 val arr = ArrayBuffer[Int]()
 arr+= (1,5,10,14,39)
@@ -21,4 +23,43 @@ for (i <- arr1) yield {
   Random.nextInt(n)
 }
 
+//3.3
 
+//3.4
+
+//3.5 compute average of Array[double]
+def avg(arr:Array[Double]): Double = {
+  var sum = 0.0
+  for (i <- arr){
+    sum += i
+  }
+  sum/arr.length
+}
+avg(Array[Double](5,10))
+
+//3.6 reverse sorted order
+var list = Array[Int](1,2,3,4,5)
+list.sortBy(-_)
+
+//3.7 remove all duplicates
+list = Array[Int](1,1,2,2,3,3)
+list.distinct
+
+//3.8
+var testArray = ArrayBuffer[Int](1,-1,2,-2,3,-3)
+var removeArray = for (i <- 0 until testArray.length if Chapter2.signum(testArray(i)) == -1) yield i
+removeArray = removeArray.reverse
+removeArray.dropRight(1)
+for (i <- 0 until removeArray.length) {
+  testArray.remove(removeArray(i))
+}
+testArray
+//3.9 take all American time zones and sort by length of string
+var timeZones = ArrayBuffer[String]()
+for (i <- (java.util.TimeZone.getAvailableIDs())){
+  if (i.startsWith("America/")) timeZones += i.drop(8)
+}
+timeZones.sortBy(_.size)
+//3.10
+val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
+//val Buffer[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
