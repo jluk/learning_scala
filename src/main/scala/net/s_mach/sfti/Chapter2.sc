@@ -32,7 +32,6 @@ var y = 1
 x = y = 10
 //2.4
 for (i <- 10 until 0 by -1) println(i)
-
 //2.5: procedures are akin to static methods
 def countdown(n:Int): Unit ={
   for (i <- n until -1 by -1) println(i)

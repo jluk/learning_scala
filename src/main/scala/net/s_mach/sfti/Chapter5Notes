@@ -1,0 +1,50 @@
+Classes
+* Fields in classes autogen getters/setters
+* Uniform Access Principle - replace a field with custom getter/setter without changing client of class
+* Constructor interwoven with class definition, params turn into fields of the class
+
+class Counter {
+    private var value = 0
+    def increment() {       //default public methods
+        value+=1
+    }
+    def current() = value
+}
+
+val myCounter = new Counter()
+myCounter.increment()
+
+* parameterless methods have optional ()
+    * if augment state, mutator, use ()
+    * if not, accessor, drop ()
+
+Generating Getters/Setters
+* if field is private, getter/setter are private
+* if field is a val, only getter is generated (element does not change)
+* if don't want a getter/setter, declare field as private[this]
+
+Implementing Properties
+1. var foo: Scala makes getter/setter
+2. val foo: " " getter
+3. Define methods foo and foo_=
+4. define a method foo
+
+Object private fields have no getters or setters
+
+Auxiliary constructors exist and can override the primary constructor if needed
+
+Primary constructor params are feed in during the class header
+class Person(val name: String, val age: Int) {
+    def description = name + " is " + age + " years old."
+}
+
+Nested Classes
+* a nested class is treated as a different class than a separate instance of the nested class
+var chatter = new Network
+var myFace = new Network
+val Fred = chatter.join("Fred")
+val Wilma = myFace.join("Wilma")
+cannot add Wilma to a buffer of chatter.Member elements
+
+type project Network#Member allows any network member
+val contacts = new ArrayBuffer[Network#Member]
