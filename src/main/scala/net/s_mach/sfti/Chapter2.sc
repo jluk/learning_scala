@@ -14,10 +14,10 @@ def closeMult(n:Int, d:Int): Int =
   if (d%n != 0) closeMult(n+1, d)
   else n
 val r = closeMult(4,18)
-def embaress(name: String, left: String = "xX", right: String = "Xx") = left+name+right
-embaress("Justin")
-embaress("Justin", "**", "##")
-embaress(name = "is bad", left = "Tyler ", right = " at smash")
+def embarrass(name: String, left: String = "xX", right: String = "Xx") = left+name+right
+embarrass("Justin")
+embarrass("Justin", "**", "##")
+embarrass(name = "is bad", left = "Tyler ", right = " at smash")
 //Exercises
 //2.1
 Chapter2.signum(-100)

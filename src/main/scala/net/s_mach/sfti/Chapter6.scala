@@ -21,12 +21,23 @@ object Chapter6 {
     }
   }
 
+  //6.2
+  //trait is roughly an interface
+  trait UnitConversion{
+    def convert(a: Double): Double
+  }
+
+  object InchesToCentimeters extends UnitConversion{
+    override def convert(a: Double): Double = a*2.54
+  }
+
   //6.3
   class Point(x:Int, y:Int){
 
   }
+  //store static methods to create/manipulate the base class
   object Point{
-    def create(x:Int,y:Int): Unit ={
+    def create(x:Int,y:Int): Point ={
       new Point(x,y)
     }
   }

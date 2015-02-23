@@ -4,6 +4,8 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * author:JustinLuk
  * date:2/21/15
+ *
+ * http://aperiodic.net/phil/scala/s-99/
  */
 class ArithmeticProblems {
 

@@ -56,6 +56,27 @@ object Chapter5 {
     }
   }
 
+  //5.6
+  //prime constructor exists next to class name
+  class Counter(v: Int){
+    private var value = 0
+    if (v >= 0) {value = v}
+
+    //increment() has parens because it mutates the value
+    def increment() { value += 1}
+    def current = value
+  }
+
+  //5.7
+  //plain parameter: it is inaccesible outside of the constructor
+  //putting a val or var in front of name allows access to the param
+  class Person(val name: String){
+    private val names = name.split(" ")
+    //read only being a val
+    val firstName = names(0)
+    val lastName = names(1)
+  }
+
   //5.8
   class Car (manufacturer: String, model:String){
     private var modelYear = -1

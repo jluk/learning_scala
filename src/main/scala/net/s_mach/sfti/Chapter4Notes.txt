@@ -1,3 +1,12 @@
+List(1,2,3)
+
+Node(1) -> Node(2) -> Node(3) -> null
+
+val l1 = Node(3) -> null
+val l2 = Node(2) -> l1
+val l3 = Node(1) -> l2
+val l4 = Node(4) -> l1
+
 Maps and Tuples
 * create, query, traverse maps
 * mutable vs. immutable maps

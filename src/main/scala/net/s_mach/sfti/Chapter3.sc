@@ -15,6 +15,13 @@ for (i <- 0 until triangle.length){
 }
 triangle
 //still confused on interoperability with Java, review soon
+val llist = new java.util.LinkedList[Int]()
+llist.add(1)
+llist.add(2)
+llist.add(3)
+import scala.collection.JavaConverters._
+val nowScalaCollection = llist.asScala
+val nowJavaCollection = nowScalaCollection.asJava
 //Chapter 3 Exercises
 //3.1
 val n = 10

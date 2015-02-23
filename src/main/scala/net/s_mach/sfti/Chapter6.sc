@@ -26,3 +26,15 @@ def isRed(card: CardType): Boolean={
 }
 isRed(heart)
 isRed(club)
+
+//6.5
+def reverse(a : Array[String]): String = {
+  var result = ""
+  for (i <- a.length-1 until 0 by -1){
+    result += a(i)
+  }
+  result
+  //a.reverse
+}
+
+reverse(Array("Apple","Sauce"))
