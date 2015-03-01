@@ -1,0 +1,21 @@
+Packages & Imports
+
+Key Points:
+* packages nest like inner classes
+* chaining x.y.z leaves intermediate packages x and x.y invisible
+* package objects can hold functions and variables
+* imports can be anywhere and rename/hide members
+* java.lang, scala, and Predef are always imported
+
+Importing allows shorter names
+
+import java.awt._
+
+def handler(evt: event.ActionEvent) // java.awt.event.ActionEvent
+
+Renaming members
+import java.util.{HashMap => JavaHashMap}
+import scala.collection.mutable._
+
+Importing multiple members
+import java.awt.{Color, Font}
