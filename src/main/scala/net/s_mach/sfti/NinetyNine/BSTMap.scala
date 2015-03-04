@@ -6,7 +6,7 @@ import scala.collection.mutable
  * author:JustinLuk
  * date:3/2/15
  *
- * Learning with Mark Lewis
+ * Learning from Mark Lewis Scala Tutorials
  */
 
 /*
