@@ -5,6 +5,8 @@ import scala.collection.mutable
 /**
  * author:JustinLuk
  * date:3/2/15
+ *
+ * Learning with Mark Lewis
  */
 
 /*
@@ -19,8 +21,8 @@ class BSTMap[K,V](comp:(K,K) => Int) extends mutable.Map[K,V] {
   private var root: Node = null;
 
   /*
-  add method using recursion for its ability to walk off the tree
-  and store the last child to be attached to on its stack
+  @Description: add method using recursion for its ability to walk off the tree and store the last child to be attached to on its stack
+  @return Unit
    */
   def +=(kv: (K, V)) = {
     val (key, value) = kv;
@@ -48,19 +50,66 @@ class BSTMap[K,V](comp:(K,K) => Int) extends mutable.Map[K,V] {
   }
 
   /*
-
+  Removal Method
+  @Description: Successor is max value of left child
+  @Return: Unit
    */
   def -=(key: K) = {
+
+    def recur(n: Node): Node = {
+      if (n != null){
+        val c = comp(key, n.key);
+
+        if (c == 0) {
+
+          if (n.left == null) n.right
+          else if (n.right == null) n.left
+          else {
+            val (k,v,node) = removeMax(n.left)
+            n.left = node
+            n.key = k
+            n.value = v
+            n
+          }
+
+        } else if (c <= 0) {
+          n.left = recur(n.left)
+          n
+        } else {
+          n.right = recur(n.right)
+          n
+        }
+      } else {
+        null
+      }
+    }
+
+    /*
+    Helper function to find successor that will be the greatest node in the left subtree
+    Case 1: Found an empty right child, pass back the contents of the new successor
+    Case 2: Has a right child so we recurse on that child
+     */
+    def removeMax(n:Node):(K,V,Node) = {
+      if (n.right == null){
+        (n.key, n.value, n.left)
+      } else {
+        val (k,v,node) = removeMax(n.right)
+        n.right = node
+        (k,v,n)
+      }
+    }
+
+    root = recur(root)
     this
   }
 
   /*
-  get node method
+  iterative get node method
    */
   def get(key: K): Option[V] = {
     var curr = root;
     //store comparison of key looking for and the current node
-    var c = if (curr != null) comp(key, curr.key) else 0;
+    var c = if (curr != null) comp(key, curr.key) else 0
 
     while (curr != null && c != 0) {
       curr = if (c <= 0) curr.left else curr.right
@@ -68,12 +117,17 @@ class BSTMap[K,V](comp:(K,K) => Int) extends mutable.Map[K,V] {
     if (curr == null) None else Some(curr.value)
   }
 
+    /*
+    Iterator utilizing a stack, built to Inorder traversal
+     */
   def iterator = new Iterator[(K, V)] {
     val stack = new ArrayStack[Node];
     pushAllLeft(root);
 
     def next:(K,V) = {
+      if (!hasNext) println("The stack is empty :(")
       val ret = stack.pop();
+      //grab right child and shove all left children onto the stack
       pushAllLeft(ret.right);
       ret.key -> ret.value;
     }
