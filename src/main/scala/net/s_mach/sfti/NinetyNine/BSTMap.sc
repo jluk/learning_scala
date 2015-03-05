@@ -29,7 +29,5 @@ val dbziter = dbzTree.iterator
 while (dbziter.hasNext){
   println(dbziter.next)
 }
-
 dbzTree -= 500
 dbzTree -= 2000
-

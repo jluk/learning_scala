@@ -19,7 +19,7 @@ class BSTMap[K,V](comp:(K,K) => Int) extends mutable.Map[K,V] {
   class Node(var key: K, var value: V, var left: Node, var right: Node)
 
   private var root: Node = null;
-
+  def getRoot() = root;
   /*
   @Description: add method using recursion for its ability to walk off the tree and store the last child to be attached to on its stack
   @return Unit
@@ -156,4 +156,5 @@ class BSTMap[K,V](comp:(K,K) => Int) extends mutable.Map[K,V] {
     }
     recur(root)
   }
+
 }
