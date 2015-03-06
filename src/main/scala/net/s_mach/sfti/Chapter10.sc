@@ -19,3 +19,13 @@ cryptTest.log("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG")
 //decode
 cryptTest.setKey(-3)
 cryptTest.log("WKH TXLFN EURZQ IRA MXPSV RYHU WKH ODCB GRJ")
+//10.7
+val Frank = new Politician("Frank")
+Frank.wit = 200
+val Dundore = new Politician("Dundore")
+Frank.debate(Dundore)
+Frank.wit
+Dundore.pride
+val Hemingway = new Writer("Ernest")
+Hemingway.pride += 100
+Hemingway.greeting
