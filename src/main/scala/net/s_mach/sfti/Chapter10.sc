@@ -29,3 +29,5 @@ Dundore.pride
 val Hemingway = new Writer("Ernest")
 Hemingway.pride += 100
 Hemingway.greeting
+Hemingway.listen(Frank)
+Hemingway.wit

@@ -109,14 +109,18 @@ object Chapter10 {
   Power is the intoxicating truth.
    */
   trait Powerful extends Person{
-
+    def order(opponent:Person): Unit ={
+      opponent.pride = opponent.wit
+    }
   }
 
   /*
   Empathy can sway a nation and turn the tide.
    */
   trait Empathy extends Person{
-
+    def listen(opponent:Person): Unit ={
+      wit += opponent.pride
+    }
   }
 
   /*
@@ -214,6 +218,6 @@ object Chapter10 {
   //10.10 ???
   trait IterableInputStream extends java.io.InputStream with Iterable[Byte] {
 
-    def iterator: Iterator[Byte] = new InputStreamIterator(this)
+    //def iterator: Iterator[Byte] = new InputStreamIterator(this)
   }
 }
