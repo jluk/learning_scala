@@ -1,0 +1,13 @@
+Chapter - Due Date
+Chapter 11 - March 15
+Chapter 12 - March 22
+Chapter 13* (Collections) - March 29
+Chapter 14 - April 5
+Chapter 17* (Type Parameters) - April 12
+Chapter 18 - April 19
+Chapter 21* (Implicits) - April 26
+
+Final Project - May 15
+
+Ideas:
+Tyler - Stock Exchange (Match buy/sell orders and retrieve historical data)
