@@ -1,3 +1,4 @@
+@(output:Seq[String])
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -5,6 +6,8 @@
     <title></title>
 </head>
 <body>
-
+@for(o <- output){
+    @o <br>
+}
 </body>
 </html>
