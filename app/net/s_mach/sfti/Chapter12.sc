@@ -1,4 +1,5 @@
 import scala.math._
+import scala.collection.mutable._
 
 val num = 3.14
 val fun = ceil _
@@ -38,3 +39,7 @@ until(x==0){
   x-=1
   println(x)
 }
+
+//Exercise 2
+var a1 = ArrayBuffer[Int](2,223,5,6,8,190,129)
+a1.reduceLeft(_ max _)
