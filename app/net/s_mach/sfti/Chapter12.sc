@@ -22,7 +22,6 @@ fun2(3)
 
 "Apples are my favorite fruit".split(" ").sortWith(_.length < _.length)
 //SAM Conversions: Single Abstract Method
-
 //Currying: turn a function that takes two args into a function as one arg
 val a = Array("Hello", "World")
 val b = Array("Goodnight", "World")
@@ -39,7 +38,20 @@ until(x==0){
   x-=1
   println(x)
 }
-
 //Exercise 2
 var a1 = ArrayBuffer[Int](2,223,5,6,8,190,129)
 a1.reduceLeft(_ max _)
+//E5
+val largest = (fun:(Int) => Int, inputs: Seq[Int]) => inputs.reduceLeft((x,y) =>fun (Math.max(x, fun(y))))
+largest(x => 10*x-x*x, ArrayBuffer[Int](1,2,3,4,5,6,7,8,9,10))
+//E6
+val largestInput = (fun:(Int) => Int, inputs: Seq[Int]) => inputs.maxBy(fun)
+largestInput(x => 10*x-x*x, ArrayBuffer[Int](1,2,3,4,5,6,7,8,9,10))
+//E7
+def adjustToPair(func:(Int,Int) => Int)(p: (Int,Int)): Int= {
+  val res = func(p._1,p._2)
+  res
+}
+val adjustTest = adjustToPair(_*_)(5,6)
+val addPair = adjustToPair(_+_)_
+((1 to 10) zip (11 to 20)).map { addPair }

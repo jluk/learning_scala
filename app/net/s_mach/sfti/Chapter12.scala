@@ -31,10 +31,29 @@ object Chapter12 {
   }
 
   def question_5(): Int ={
-
+  //function value taking in a function with int param with an output of an int
+    //second input is a sequence of ints
+    //largest = max value after func operation
     val largest = (fun:(Int) => Int, inputs: Seq[Int]) => inputs.reduceLeft((x,y) =>Math.max(x, fun(y)))
 
     largest(x => 10*x-x*x, ArrayBuffer[Int](1,2,3,4,5,6,7,8,9,10))
   }
 
+  def question_6(): Int ={
+    val largestInput = (fun:(Int) => Int, inputs: Seq[Int]) => inputs.maxBy(fun)
+    largestInput(x => 10*x-x*x, ArrayBuffer[Int](1,2,3,4,5,6,7,8,9,10))
+  }
+
+  def question_7(): Unit ={
+    def adjustToPair(func:(Int,Int) => Int)(p: (Int,Int)): Int= {
+      val res = func(p._1,p._2)
+      res
+    }
+
+    val addPair = adjustToPair(_+_)_
+  }
+
+  def question_8(): Unit ={
+
+  }
 }
