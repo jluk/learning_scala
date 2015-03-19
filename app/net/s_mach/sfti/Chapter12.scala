@@ -23,7 +23,7 @@ object Chapter12 {
   def question_3(): Unit ={
 
     def fact(n:Int): Int ={
-      var res = if (n < 1) 1 else (n to 1 by -1 ).reduceLeft(_ * _)
+      var res = if (n < 1) 1 else (1 to n by 1 ).reduceLeft(_ * _)
       res
     }
 
@@ -54,6 +54,15 @@ object Chapter12 {
   }
 
   def question_8(): Unit ={
+    val checkLen = (a:ArrayBuffer[String], b:ArrayBuffer[Int]) => a.corresponds(b)(_.length == _)
+    checkLen(ArrayBuffer[String]("Hi", "World"), ArrayBuffer[Int](2,5))
+  }
+
+  //"unless" control abstraction that works like if, but with an inverted condition
+  def question_10(): Unit ={
+    def unless(condition: => Boolean)(block: => Unit): Unit ={
+      if (!condition) block
+    }
 
   }
 }

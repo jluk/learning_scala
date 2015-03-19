@@ -55,3 +55,6 @@ def adjustToPair(func:(Int,Int) => Int)(p: (Int,Int)): Int= {
 val adjustTest = adjustToPair(_*_)(5,6)
 val addPair = adjustToPair(_+_)_
 ((1 to 10) zip (11 to 20)).map { addPair }
+
+val checkLen = (a:ArrayBuffer[String], b:ArrayBuffer[Int]) => a.corresponds(b)(_.length == _)
+checkLen(ArrayBuffer[String]("Hi", "World"), ArrayBuffer[Int](2,5))
