@@ -1,3 +1,4 @@
+import scala.collection.mutable
 
 //what is uniform creation principle?
 
@@ -25,3 +26,44 @@ var x = Set(2,4,9)
 var y = Set(1,2,3,4)
 x ++ y
 x subsetOf y
+
+var nums = Set(1,5,7,9)
+nums.product
+var nums2 = Set(2,3,6,8)
+nums.zip(nums2)
+nums.map(x => x*x)
+
+//unique methods of seq trait
+var seq1 = List(2,3,3,5)
+seq1.indexWhere{x => x%2 == 1}
+seq1.segmentLength(x => x%2 == 1, seq1.length-3)
+seq1.padTo(8, 0).reverse
+
+//mapping a function
+var s = "Mississippi"
+s.collect{case 'i' => 1; case 's' => 0}
+
+//reduce fold scan
+//fold moves in a tree hierarchy and can curry a starting value
+List(1,2,3,4).foldLeft(0)(_+_)
+
+(1 to 10).scanLeft(1)(_+_)
+//zipping
+val prices = List(5,6,7,8)
+val quantity = List(10,5,6,9)
+val rev = (prices zip quantity) map {p => p._1 * p._2}
+
+//E1
+def indexes(s:String): mutable.LinkedHashMap[Char, Seq[Int]] = {
+  var res = new mutable.LinkedHashMap[Char, Seq[Int]]
+  s.zipWithIndex.foreach( (c) => {
+    if (!res.contains(c._1)){
+      var ns = Seq(c._2)
+      res.put(c._1, ns)
+    } else {
+      res.put(c._1,res.get(c._1):+(c._2))
+    }
+  }
+  res
+}
+indexes("Mississippi")
