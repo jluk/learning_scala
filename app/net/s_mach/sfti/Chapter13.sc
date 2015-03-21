@@ -54,16 +54,20 @@ val quantity = List(10,5,6,9)
 val rev = (prices zip quantity) map {p => p._1 * p._2}
 
 //E1
-def indexes(s:String): mutable.LinkedHashMap[Char, Seq[Int]] = {
-  var res = new mutable.LinkedHashMap[Char, Seq[Int]]
+//why cant i update the set value
+//what is wrong with returning the hashmap
+def indexes(s:String): mutable.LinkedHashMap[Char, mutable.MutableList[Int]] = {
+  var res = new mutable.LinkedHashMap[Char, mutable.MutableList[Int]]
   s.zipWithIndex.foreach( (c) => {
     if (!res.contains(c._1)){
-      var ns = Seq(c._2)
+      var ns = mutable.MutableList(c._2)
       res.put(c._1, ns)
     } else {
-      res.put(c._1,res.get(c._1):+(c._2))
+      var ml = res.get(c._1) append c._2
+      res += (c._1 -> ml append (c._2))
     }
   }
   res
 }
 indexes("Mississippi")
+
