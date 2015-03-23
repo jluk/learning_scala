@@ -10,4 +10,10 @@ Chapter 21* (Implicits) - April 26
 Final Project - May 15
 
 Ideas:
-Tyler - Stock Exchange (Match buy/sell orders and retrieve historical data)
+Weightlifting Tracker web app
+*Workout plan suggester (algorithmic)
+*Progressive overload tracking (volume + weight)
+*Diet tracker (macrolevel)
+*D3 visualizations?
+*front end heavy
+
