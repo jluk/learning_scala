@@ -71,3 +71,18 @@ indexes("Mississippi")
 //E3 remove all zeroes from LL of integers
 val LL = mutable.MutableList(1,4,0,1,0)
 val nLL = LL.filter(_ != 0)
+//E4
+def categorize(names: mutable.ArrayBuffer[String], dict: mutable.HashMap[String,Int] ): mutable.ArrayBuffer[Int] = {
+  names.flatMap(dict.get)
+}
+categorize(mutable.ArrayBuffer("Fred","Harry"), mutable.HashMap("Tom"->3,"Fred"->4,"Harry"->5))
+//E5
+def mkString(seq:Seq[Any], delimiter:String) =
+  seq.reduceLeft(_.toString + delimiter + _.toString)
+
+mkString(Array(2, 3, 4, 5), ", ")
+
+//E6
+val lst = List(9,1,2,8)
+(lst :\ List[Int]())(_ :: _)
+(List[Int]() /: lst)(_ :+ _)
