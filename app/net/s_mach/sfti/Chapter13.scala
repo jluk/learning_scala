@@ -45,4 +45,28 @@ object Chapter13 {
 
     mkString(Array(2, 3, 4, 5), ", ")
   }
+
+  def question_6(): List[Int] = {
+    //(lst :\ List[Int]())(_::_) is a foldLeft
+    //(List[Int]() /: lst)(_:+_) is a foldRight
+    val lst = List(1,2,3,4,5)
+    val rev = (List[Int]() /: lst)((x,y) => y :: x)
+    rev
+  }
+
+  def question_7(): List[Int] = {
+    val prices = List(5,6,7,8)
+    val quantity = List(10,5,6,9)
+    //pass in multiple lists and call .zipped while passing in correct function to operate with
+    val revenue = (prices, quantity).zipped map {_*_}
+    revenue
+  }
+
+  def question_8(): String = {
+    def table(nums:Array[Int],col:Int) = {
+      nums.grouped(col).toArray.map(_.toArray)
+    }
+    val res = table(Array(1,2,3,4,5,6,7,8), 3)
+    res.deep.mkString(", ")
+  }
 }
