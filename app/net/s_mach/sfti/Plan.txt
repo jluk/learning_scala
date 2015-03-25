@@ -10,10 +10,86 @@ Chapter 21* (Implicits) - April 26
 Final Project - May 15
 
 Ideas:
-Weightlifting Tracker web app
-*Workout plan suggester (algorithmic)
-*Progressive overload tracking (volume + weight)
-*Diet tracker (macrolevel)
-*D3 visualizations?
-*front end heavy
 
+Training Program Efficacy
+*Workout plan suggester (algorithmic for BB vs. Powerlifters vs. Oly specifics)
+*Progressive overload tracking (volume + weight)
+*Diet tracker (macrolevel, waiting an MFP API request)
+*D3 visualizations, working with scala.js?
+*front end heavy
+*reddit tie-in? profile history text analysis?
+
+Featureset
+1. Track
+    a. Lifts from the day
+    b. Weight
+        i. Caloric change based on weight (+- 500 etc.)
+        ii. Rate of change (safety)
+        iii. BF Inference
+    c. Daily caloric intake (pending MFP request)
+
+2. Find suitable workout regimen
+    a. Select Goal + Timeframe
+    b. Select workouts/week
+    c. Select experience level
+
+3. Analyze (Front End .js heavy)
+    a. Weightlifting
+        i. Progressive Overload
+        ii. Compound lift changes
+        iii. Power Index
+        iv. Failure: After x failed increases, suggest deload
+    b. Weight Change
+        i. Caloric change based on weight
+        ii. Rate of change (safety)
+        iii. BF Inference
+    c. Mentality
+        i. Completion of routines
+
+4. Inspire (Galleria)
+    a. Instagram feed of popular fitness leaders
+        i. Arnold S.
+        ii. Layne Norton
+        iii. (sectioned by power, bb, oly)
+    b. Feed of healthy foods
+        i. Picture
+        ii. Recipe
+        iii. Macros
+    c. Motivation
+        i. Videos
+        ii. Quotes
+        iii. User stories
+
+Backend
+MongoDB vs. Postgres
+
+Schedule
+Backlog
+*Draft Project proposal
+    *Who, Why, How
+*Requirements
+
+3/29
+*Initial Design
+
+4/5
+*Design review
+*Design Sign off
+
+4/12
+*Develop
+
+4/19 (Dead Week)
+*Develop
+
+4/26 (Finals)
+*Develop
+
+5/3
+*Develop
+
+5/10 (Korea)
+* Test
+
+5/17 (Korea)
+* Bug Fix
