@@ -51,6 +51,7 @@ object Chapter12 {
     }
 
     val addPair = adjustToPair(_+_)_
+    ((1 to 10) zip (11 to 20)).map { addPair }
   }
 
   def question_8(): Unit ={

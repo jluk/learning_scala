@@ -28,6 +28,9 @@ Featureset
         iii. BF Inference
     c. Daily caloric intake (pending MFP request)
 
+    Take user input fields and map into db
+
+
 2. Find suitable workout regimen
     a. Select Goal + Timeframe
     b. Select workouts/week
