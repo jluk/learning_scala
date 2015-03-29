@@ -24,30 +24,30 @@ object Application extends Controller{
     Ok(views.html.showOutput(output))
   }
 
-  def chapter12_question3 = Action{
-    val output = Chapter12.question_3()
-    Ok(views.html.showOutput(output))
-  }
-
-  def chapter12_question5 = Action{
-    val output = Chapter12.question_5()
-    Ok(views.html.showOutput(output))
-  }
-
-  def chapter12_question6 = Action{
-    val output = Chapter12.question_6()
-    Ok(views.html.showOutput(output))
-  }
-
-  def chapter12_question7 = Action{
-    val output = Chapter12.question_7()
-    Ok(views.html.showOutput(output))
-  }
-
-  def chapter12_question8 = Action{
-    val output = Chapter12.question_8()
-    Ok(views.html.showOutput(output))
-  }
+//  def chapter12_question3 = Action{
+//    val output = Chapter12.question_3()
+//    Ok(views.html.showOutput(output))
+//  }
+//
+//  def chapter12_question5 = Action{
+//    val output = Chapter12.question_5()
+//    Ok(views.html.showOutput(output))
+//  }
+//
+//  def chapter12_question6 = Action{
+//    val output = Chapter12.question_6()
+//    Ok(views.html.showOutput(output))
+//  }
+//
+//  def chapter12_question7 = Action{
+//    val output = Chapter12.question_7()
+//    Ok(views.html.showOutput(output))
+//  }
+//
+//  def chapter12_question8 = Action{
+//    val output = Chapter12.question_8()
+//    Ok(views.html.showOutput(output))
+//  }
 
 }
 

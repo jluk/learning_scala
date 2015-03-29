@@ -10,14 +10,14 @@ import scala.collection.mutable._
 object Chapter12 {
 
   //
-  def question_1(): Unit = {
+  def question_1(): Seq[String] = {
 
     def values(fun: (Int) => Int, low: Int, high: Int): ArrayBuffer[(Int,Int)] ={
       var res = new ArrayBuffer[(Int,Int)]
       for (n <- low to high) res += ((n,fun(n)))
       res
     }
-    values(x => x*x, -5,5)
+    Seq(values(x => x*x, -5,5).toString)
   }
 
   def question_3(): Unit ={
