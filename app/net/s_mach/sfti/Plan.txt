@@ -30,7 +30,6 @@ Featureset
 
     Take user input fields and map into db
 
-
 2. Find suitable workout regimen
     a. Select Goal + Timeframe
     b. Select workouts/week
@@ -63,8 +62,40 @@ Featureset
         ii. Quotes
         iii. User stories
 
-Backend
-MongoDB vs. Postgres
+Tech Stack
+*Scala
+*Play Framework
+*Angular.js?
+*Scala.js
+*ReactiveMongo
+*bootstrap
+*LESS (Advanced CSS)
+
+Tools
+Waffle.io
+Travis CI
+
+TODO:
+1. setup heroku
+    a. add mongodb plugin
+    b. deploy heroku
+    c. visit website and verify
+2. add issues in github
+3. organize waffle.io
+4. remove play-reactivemongo and replace with plain reactivemongo (with Lance)
+5. add passing tests
+6. add travis CI support
+
+Status page
+User logins: Play authenticate (FB, gmail, etc.) //make a decision, it is not easy to do
+Data: what collections for mongo: users, workout plan
+Samples: use mongo console to insert sample data (learn from Lance how to save to mongo)
+UI: how to display the data for users --> mockups
+
+
+
+
+
 
 Schedule
 Backlog
