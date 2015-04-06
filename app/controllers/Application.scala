@@ -24,6 +24,16 @@ object Application extends Controller{
     Ok(views.html.showOutput(output))
   }
 
+  def chapter14_question2 = Action{
+    val output = Chapter14.question_2()
+    Ok(views.html.showOutput(output))
+  }
+
+  def chapter14_question3 = Action{
+    val output = Chapter14.question_3()
+    Ok(views.html.showOutput(output))
+  }
+
 //  def chapter12_question3 = Action{
 //    val output = Chapter12.question_3()
 //    Ok(views.html.showOutput(output))

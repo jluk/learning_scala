@@ -4,4 +4,11 @@ GET     /chapter1/question1 controllers.Application.chapter1_question1
 
 GET     /chapter12/question1 controllers.Application.chapter12_question1
 
+GET     /chapter14/question2 controllers.Application.chapter12_question2
+
+GET     /chapter14/question3 controllers.Application.chapter12_question3
+
+GET     /chapter14/question4 controllers.Application.chapter12_question4
+
+
 GET     /assets/*file     controllers.Assets.at(path="/public", file)
