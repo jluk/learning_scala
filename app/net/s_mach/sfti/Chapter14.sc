@@ -71,3 +71,45 @@ def leafSum(l:List[Any]): Int = {
 }
 
 leafSum(List(List(1,2,3),5,List(List(1,2),5)))
+
+//sealed abstract class BinaryTree
+//case class Leaf(value:Int) extends BinaryTree
+//case class Node(left:BinaryTree, right:BinaryTree) extends BinaryTree
+//def treeSum(BT:BinaryTree): Int = {
+//    BT match {
+//      case Leaf(value) => value
+//      case Node(left,right) => treeSum(left) + treeSum(right)
+//      case _ => 0
+//    }
+//}
+//
+//treeSum(Node(Node(Leaf(2),Leaf(5)),Leaf(7)))
+//
+//case class Node2(left:BinaryTree*) extends BinaryTree
+//
+//def treeSum2(BT:BinaryTree): Int = {
+//  BT match {
+//    case Leaf(value) => value
+//    case Node2(leaves @_*) => leaves.map(treeSum2 _).sum
+//    case _ => 0
+//  }
+//}
+//
+//Seq(treeSum2(Node2(Node2(Leaf(2),Leaf(5),Leaf(5)),Leaf(7))).toString)
+
+sealed abstract class BinaryTree
+case class Leaf(value: Int) extends BinaryTree
+case class Node(operator: Char, leaves: BinaryTree*) extends BinaryTree
+
+def eval(BT: BinaryTree): Int = {
+  BT match {
+    case Leaf(value) => value
+    case Node(operator, leaves @_*) => operator match {
+      case '*' => leaves.map(eval _).product
+      case '+' => leaves.map(eval _).sum
+      case '-' => -leaves.map(eval _).sum
+    }
+    case _ => 0
+  }
+}
+Seq(eval(Node('+',Node('*', Leaf(2), Leaf(5), Leaf(5)), Leaf(7))).toString)
