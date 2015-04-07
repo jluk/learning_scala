@@ -1,5 +1,7 @@
 package net.s_mach.sfti
 
+import scala.math._
+
 /**
  * author:JustinLuk
  * date:4/5/15
@@ -108,6 +110,30 @@ object Chapter14 {
       }
     }
     Seq(eval(Node('+',Node('*', Leaf(2), Leaf(5), Leaf(5)), Leaf(7))).toString)
+  }
+
+  def question_9(): Seq[String] = {
+    def sumOptions(lst:List[Option[Int]]): Int = {
+      lst.map(_.getOrElse(0)).sum
+    }
+
+    Seq(sumOptions(List(Some(1),None,None,Some(4))).toString)
+  }
+
+  def question_10(): Seq[String] = {
+    type A = Double => Option[Double]
+
+    def compose(f1:A, f2:A): A = {
+      (x: Double) => f1(x) match {
+        case Some(x) => f2(x)
+        case None => None
+      }
+    }
+    def f(x:Double) = if (x > 0) Some(sqrt(x)) else None
+    def g(x:Double) = if (x != 1) Some(1/(x-1)) else None
+    val h = compose(f,g)
+
+    Seq(h(9).toString, h(1).toString, h(0).toString)
   }
 }
 

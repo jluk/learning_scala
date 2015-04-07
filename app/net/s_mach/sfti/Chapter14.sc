@@ -1,3 +1,5 @@
+import math.sqrt
+
 //a better switch
 var sign = 0
 var digit = 0
@@ -113,3 +115,25 @@ def eval(BT: BinaryTree): Int = {
   }
 }
 Seq(eval(Node('+',Node('*', Leaf(2), Leaf(5), Leaf(5)), Leaf(7))).toString)
+
+def sumOptions(lst:List[Option[Int]]): Int = {
+  lst.map(_.getOrElse(0)).sum
+}
+
+sumOptions(List(Some(1),None,None,Some(4)))
+
+type A = Double => Option[Double]
+
+def compose(f1:A, f2:A): A = {
+  (x: Double) => f1(x) match {
+    case Some(x) => f2(x)
+    case None => None
+  }
+}
+def f(x:Double) = if (x > 0) Some(sqrt(x)) else None
+def g(x:Double) = if (x != 1) Some(1/(x-1)) else None
+val h = compose(f,g)
+
+h(9)
+h(1)
+h(0)
