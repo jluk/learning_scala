@@ -11,8 +11,8 @@
 //val p = new Pair("Justin", "Jack")
 //val check1 = p.bigger
 
-//confused on 17.10
-//covariant = [+T]
+//confused on 17.10 what is the diff btwn covariant and contravariant?
+//covariant = [+T] it varies in the same direction
 //contravariant = [-T]
 //why does class Pair[+T](var first: T, var second:T) error?
 
@@ -48,3 +48,16 @@ Seq(test3v.first, test3v.second)
 //E6
 def middle[T](in:Iterable[T]) = in.drop((in.size-1)/2).head
 println(middle("World"))
+
+//E7?
+//
+
+//E8?
+
+//E9
+class NastyPair[+T](first:Double, second:Double){
+  def replaceFirst[R >: T](newFirst: R) = new NastyPair(newFirst, second)
+}
+class NastyDoublePair(first:Double, second:Double) extends Pair[Double] {
+
+}
