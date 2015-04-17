@@ -10,19 +10,16 @@
 //}
 //val p = new Pair("Justin", "Jack")
 //val check1 = p.bigger
-
 //confused on 17.10 what is the diff btwn covariant and contravariant?
 //covariant = [+T] it varies in the same direction
 //contravariant = [-T]
 //why does class Pair[+T](var first: T, var second:T) error?
-
 //E1
 class Pair2[T,S](val first:T, val second:S) {
   def swap = new Pair2(second,first)
 }
 val t = new Pair2(1,2).swap
 Seq(t.first, t.second)
-
 //E2
 class mutablePair[T](var first:T, var second:T){
   def swap() { val t = second; second = first; first = t }
@@ -30,13 +27,12 @@ class mutablePair[T](var first:T, var second:T){
 val test = new mutablePair(123, 321)
 test.swap
 Seq(test.first, test.second.toString)
-
 //E3
-class Pair[T,S](val first:T, val second:S) {}
-def retSwap[T,S](p:Pair[T,S]) = new Pair(p.second, p.first)
-val test3 = new Pair("apple", 800)
-val test3v = retSwap(test3)
-Seq(test3v.first, test3v.second)
+//class Pair[T,S](val first:T, val second:S) {}
+//def retSwap[T,S](p:Pair[T,S]) = new Pair(p.second, p.first)
+//val test3 = new Pair("apple", 800)
+//val test3v = retSwap(test3)
+//Seq(test3v.first, test3v.second)
 
 //E4
 //Since student is a child of person, the lower bound is unnecessary
@@ -53,11 +49,18 @@ println(middle("World"))
 //
 
 //E8?
+//Why can't you define an equivalent method on a mutable Pair[T]?
 
-//E9
-class NastyPair[+T](first:Double, second:Double){
-  def replaceFirst[R >: T](newFirst: R) = new NastyPair(newFirst, second)
-}
-class NastyDoublePair(first:Double, second:Double) extends Pair[Double] {
 
+//E10
+//Given a mutable Pair[S,T] class, use a type
+//constraint to define a swap method that can be
+//called if the type parameters are the same
+class Pair[S,T](var first:S, var second:T) {
+  def swap(implicit ev: S =:= T, ev2: T =:= S): Unit ={
+    val temp = first;
+    first = second;
+    second = temp;
+  }
 }
+Pair(120, 20.0).swap

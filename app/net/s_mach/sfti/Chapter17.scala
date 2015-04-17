@@ -35,4 +35,17 @@ object Chapter17 {
     def middle[T](in:Iterable[T]) = in.drop((in.size-1)/2).head
     Seq(middle("World"))
   }
+
+  def question_10(): Seq[String] = {
+    class Pair[S,T](var first:S, var second:T) {
+      def swap(implicit ev: S =:= T, ev2: T =:= S): Unit ={
+        val temp = first;
+        first = second;
+        second = temp;
+      }
+    }
+    val x = new Pair(120, 20.0)
+    x.swap
+    Seq(x.first.toString, x.second.toString)
+  }
 }
