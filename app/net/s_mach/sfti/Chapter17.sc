@@ -10,10 +10,15 @@
 //}
 //val p = new Pair("Justin", "Jack")
 //val check1 = p.bigger
+
 //confused on 17.10 what is the diff btwn covariant and contravariant?
 //covariant = [+T] it varies in the same direction
 //contravariant = [-T]
 //why does class Pair[+T](var first: T, var second:T) error?
+/*
+ * immutable lists allow storage of classes with a common ancestor
+ */
+
 //E1
 class Pair2[T,S](val first:T, val second:S) {
   def swap = new Pair2(second,first)

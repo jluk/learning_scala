@@ -30,3 +30,27 @@ val jack = twitter.join("Jack")
 val mark = twitter.join("Mark")
 
 twitter.getMembers
+
+//Use type parameters when type is supplied as the class is instantiated
+
+trait Reader[C] {
+  def read (fileName:String): C
+}
+
+class StringReader extends Reader[String] {
+  def read (fileName:String) = "Some string coming from Reader"
+}
+
+//Use abstract types when types are expected to be given by the subclass
+
+trait Writer {
+  type Out
+  type Contents
+  def write(out: Out): Contents
+}
+
+class ImageWriter extends Writer {
+  type Out = String
+  type Contents = String
+  def write(String: Out) = "Write this to the image"
+}
